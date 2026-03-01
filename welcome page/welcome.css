@@ -1,0 +1,26 @@
+body{
+    background-image: url(books.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+     
+    
+
+}
+h1{
+    font-size: 40px;
+    margin-top: 3%;
+    color: rgb(255, 255, 255);
+}
+p{
+    font-size: 20px;
+}
+.start{
+    color: black;
+    background-color: white;
+    margin-left: 10%;
+    padding: 1%;
+    border: 2px solid;
+    border-radius: 10%;
+    text-decoration: none;
+}
