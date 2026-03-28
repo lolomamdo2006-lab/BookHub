@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>search for a book</title>
     <link rel="stylesheet" href="../Navbar/Navbar.css">
+    <link rel="stylesheet" href="Admin Search.CSS">
 </head>
 
 <body>
@@ -27,29 +28,39 @@
     <script src="../Navbar/Navbar.js"></script>
     <br>
 
+    <div class="search">
+        <h1> Search For a Book </h1>
+         <div class="searchbox">
+               <input type="text" placeholder="Search by Name or Author">
+            <button class="button">search</button>
+         </div>
+ 
+    </div>
+    
+  <div class="books">
+    <div class="bookgroup">
+        <h2 class="grouptitle">Available Books</h2>
+        <div class="books-grid">
+            <div class="book-item">
+                <div class="bookinformation">
+                    <span class="dot"></span>
+                    <span class="bookname">Clean Code Book</span>
+                </div>
+                <a href="Admin Book Details.html">
+                <button class="details">Show Details</button></a>
+    
+        
+            </div>
+            </div>
+    </div>
 
-    <h2> Search For a Book </h2>
-    <input type="text" placeholder="Search by Name or Author">
-    <button>search</button>
-    <br>
-    <br>
-    <hr>
-    <br>
-    <p>
-    <h3> Available Book</h3>
-    </p>
-    <ul>
-        <li> Clean Code Book&nbsp
-
-            <a href="Admin Book Details.html">
-                <button>Show Details</button>
-        </li>
-        </a>
-
-    </ul>
-    <p>
-    <h3> Not Available Book </h3>
-    </p>
+    <div class="bookgroup">
+        <h2 class="grouptitle">Not Available Books</h2>
+        <div class="books-grid">
+             <p class="emptymsg">No books currently unavailable.</p>
+        </div>
+    </div>
+</div>
 
 </body>
 

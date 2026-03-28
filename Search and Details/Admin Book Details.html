@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title> Book Details</title>
 <link rel="stylesheet" href="../Navbar/Navbar.css">
+  <link rel="stylesheet" href="Admin Book Details.CSS">
 </head>
 
 <body>
@@ -27,26 +28,53 @@
     <script src="../Navbar/Navbar.js"></script>
     <br>
 
-    <center>
+    <div class="page-header">
         <h1>Book Details: Clean Code</h1>
-        <p>All information about the selected book is listed below.</p>
-    </center>
+        <p>All information about the selected  book is listed below</p>
+    </div>
 
-    <fieldset>
-        <legend> Book Information</legend>
-        <p><b>Book ID:</b> AS512</p>
-        <p><b>Book Name:</b> Clean Code</p>
-        <p><b>Author:</b> Robert C.Martin</p>
-        <p><b>Category:</b> Programming</p>
-        <p><b>Description:</b> This is a comprehensive guide to web development and programming basics.</p>
-        <p><b>Current Status:</b> Available</p>
-    </fieldset>
-    <br>
+    <div class="card">
+        <div class="card-top">
+             <h2>Clean Code</h2>
+             <span>Robert C. Martin</span>
+             <div class="badge">Programming</div>
+        </div>
+        <div class="card-body">
+            <div class="info-row">
+                <span class="info-label">Book ID</span>
+                <span class="info-value">AS512</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Book Name</span>
+                <span class="info-value">Clean Code</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Author</span>
+                <span class="info-value">Robert C. Martin</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Category</span>
+                <span class="info-value">Programming</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Description</span>
+                <span class="info-value">This is a comprehensive guide to web development and programming basics.</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Status</span>
+                <span class="info-value">
+                    <span class="status-pill">
+                        <span class="status-dot"></span>
+                        Available
+                    </span>
+                </span>
+            </div>
+        </div>
 
-
-    <br>
-
-    <a href="..\Book details\Edit Books.html"><button>&nbsp;&nbsp;Edit&nbsp;&nbsp;</button></a>
+        <div class="card-footer">
+            <a href="..\Book details\Edit Books.html"><button>&nbsp;&nbsp;Edit&nbsp;&nbsp;</button></a>
+        </div>
+    </div>
 
 
 </body>
