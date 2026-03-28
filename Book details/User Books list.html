@@ -2,18 +2,30 @@
 
 <head>
 	<title>Books List</title>
+	<link rel="stylesheet" href="../Navbar/Navbar.css">
 </head>
 
 <body>
-	<fieldset>
-		<nav>
-			<a href="../welcome page/welcome.html"><button>Home</button></a>&nbsp;
-			<a href="User Books list.html"><button>Book list</button></a>&nbsp;
-			<a href="../Search&Details/User Search.html"><button>Search</button></a>&nbsp;
-			<a href="../Borrowed Books/Borrowed Books.html"><button>My Borrowed Books</button></a>&nbsp;
-			<a href="../welcome page/welcome.html"><button>Logout</button></a>
-		</nav>
-	</fieldset>
+	<nav class="navbar">
+		<a href="../welcome page/welcome.html" target="_self" class="logo">Book Hup</a>
+		<ul class="nav-links">
+
+			<li><a href="../welcome page/welcome.html" target="_self">Home</a></li>
+			<hr class="hr">
+			<li><a href="User Books list.html" target="_self">Book List</a></li>
+			<hr class="hr">
+			<li><a href="../Search and Details/User Search.html" target="_self">Search</a></li>
+			<hr class="hr">
+			<li><a href="../Borrowed Books/Borrowed Books.html" target="_self">My Borrowed Books</a></li>
+			<hr class="hr">
+			<li><a href="../welcome page/welcome.html" target="_self">Logout</a></li>
+		</ul>
+		<div class="menu-toggle">&#9776;</div>
+
+	</nav>
+	<script src="../Navbar/Navbar.js"></script>
+	<br>
+
 	<h2>Books List </h2>
 	<table width="700" , height="80" , border-collapse="collapse" , border="solid" , style="text-align: center;">
 		<tr>
@@ -28,7 +40,7 @@
 			<td> Clean Code </td>
 			<td> Robert C.Martin </td>
 			<td> Programming </td>
-			<td> <a href="..\Search&Details\bookdetails.html">
+			<td> <a href="../Search and Details/User Book Details.html">
 					<button> Details </button> </a>
 			</td>
 		</tr>

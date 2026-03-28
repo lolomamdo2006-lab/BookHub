@@ -1,0 +1,102 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: Arial, sans-serif;
+}
+
+body {
+   background: AntiqueWhite;
+}
+
+.navbar {
+   padding: 15px 20px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background: linear-gradient(190deg, #FFFAF0, #FFFAF0);
+
+}
+
+.hr {
+   display: none;
+}
+
+.logo {
+
+   font-family: "Momo Signature", cursive;
+   font-weight: 400;
+   font-style: normal;
+
+   flex: 1;
+   font-size: 24px;
+   font-weight: bold;
+   color: #556B2F;
+   text-shadow: 2px 2px 5px #556B2F;
+   text-decoration: none;
+
+}
+
+.nav-links {
+   flex: 3;
+   list-style: none;
+   display: flex;
+
+}
+
+.nav-links li {
+   margin: 0 15px;
+
+}
+
+.nav-links a {
+   text-decoration: none;
+   color: black;
+   font-size: 15px;
+   font-weight: 500;
+   transition: 0.3s ease-in-out;
+
+   border-radius: 5px;
+   padding: 8px 12px;
+}
+
+.nav-links a:hover {
+   color: #8FBC8F;
+}
+
+.menu-toggle {
+   display: none;
+   font-size: 28px;
+   cursor: pointer;
+}
+
+@media (max-width:768px) {
+   .nav-links {
+
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(190deg, #FFFAF0, #FFFAF0);
+      text-align: center;
+      padding: 10px;
+   }
+
+   .nav-links.active {
+      display: flex;
+   }
+
+   .nav-links li {
+      margin: 10px 0;
+   }
+
+   .menu-toggle {
+      display: block;
+   }
+
+   .hr {
+      display: block;
+   }
+}
