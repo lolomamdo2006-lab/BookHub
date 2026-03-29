@@ -1,0 +1,152 @@
+body {
+    background: linear-gradient(135deg, #f5f0e8 0%, #e8ede0 100%);
+}
+
+.body {
+
+    margin: 0px;
+    padding: 20px;
+
+}
+
+.header {
+    text-align: center;
+}
+
+.states-containers {
+    display: flex;
+    text-align: center;
+
+    justify-content: center;
+    gap: 30px;
+    margin: 40px;
+
+}
+
+.state-card {
+
+    background: white;
+    color: #3e521c;
+    padding: 20px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.books-grid {
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 0.5cm;
+    width: 24cm;
+    margin: auto;
+    padding: 10px;
+
+
+}
+
+.book-cards {
+    box-shadow: 0 10px 30px rgba(36, 52, 32, 0.5);
+    background: white;
+    border-radius: 12px;
+    height: 8cm;
+    width: 7cm;
+}
+
+.card-headr {
+    
+    display: grid;
+    grid-template-columns: auto auto;
+    color:white;
+    height: 2cm;
+    padding: 3px 4px;
+    background: linear-gradient(135deg, #4a6635 0%, #5e8045 100%);
+    display: grid;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+
+}
+
+.card-headr h3 {
+    grid-column: 1/2;
+}
+
+.card-headr span {
+    grid-column: 1/1;
+}
+
+.card-headr mark {
+    background: rgba(255, 255, 255, 0.2);
+    border: solid 1px;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    margin-left: 10px;
+    grid-column: 2/2;
+}
+
+.card-body {
+    padding: 0.5cm;
+}
+.card-body  b{
+    direction: rtl;
+}
+
+.card-body span {
+    color: #3e521c;
+}
+
+.info-row {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 0.25cm 0;
+
+}
+
+.status-active{
+    margin-left: 118px;
+    background: #e8f5e9;
+     color: #2e7d32;
+        width: 65px;
+        border-radius: 10px;
+        text-align: center;
+        border: solid 1px;
+}
+.status-overdue{
+    margin-left: 118px;
+    background:rgba(246, 69, 69, 0.2);
+        color:rgb(200, 0, 0);
+        border: solid 1px rgb(200, 0, 0);
+        width: 65px;
+        font-size:15px;
+        border-radius: 10px;
+       padding:0 70px 0 0; 
+        text-align: center;
+}
+.actions{
+    text-align:end;
+}
+.actions button{
+
+padding: 5px;
+border-radius: 14px ;
+border: solid #3e521c 2px;
+}
+
+.button-return{
+background: #4a6635;
+color:white;
+transition: 0.3s ease-in-out;
+}
+.button-details{
+color: #3e521c;
+transition: 0.3s ease-in-out;
+}
+
+.button-details:hover{
+    background-color: #93bb77;
+}
+.button-return:hover{
+    background-color:  #93bb77;
+}

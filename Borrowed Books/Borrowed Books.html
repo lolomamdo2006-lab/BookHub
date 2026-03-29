@@ -3,6 +3,7 @@
 <head>
     <title>Borrowed Books</title>
     <link rel="stylesheet" href="../Navbar/Navbar.css">
+    <link rel="stylesheet" href="Borrowed Books.css">
 </head>
 
 <body>
@@ -25,51 +26,149 @@
     </nav>
     <script src="../Navbar/Navbar.js"></script>
     <br>
+    <div class="body">
+        <header class="header">
+            <h1>My Borrowed Books</h1>
+            <p style="color: #3e521c;">All books currently borrowed or previously returned are listed below</p>
+        </header>
+
+        <section class="states-containers">
+            <div class="state-card"><b>4</b>
+                <p>Total Borrowed</p>
+            </div>
+            <div class="state-card"><b>2</b>
+                <p>Currently Active</p>
+            </div>
+            <div class="state-card"><b>1</b>
+                <p>Overdue</p>
+            </div>
+        </section>
+
+        <main class="books-grid">
+            <article class="book-cards">
+                <div class="card-headr">
+                    <h3>Clean Header</h3>
+                    <span>Robert C. Martin</span>
+                    <p><mark>Programming</mark></p>
+                </div>
+                <div class="card-body">
+                    <div class="info-row"> <span>Book ID</span><b>AS512</b></div>
+                    <hr>
+                    <div class="info-row"> <span>Borrow Date</span><b>Mar 10, 2026</b></div>
+                    <hr>
+                    <div class="info-row"> <span>Due Date</span><b>Apr 10, 2026</b></div>
+                    <hr>
+                    <div class="info-row"> <span>Status</span>
+                        <p class="status-overdue">•Overdue
+                        <p>
+                    </div>
+                    <div class="info-row"> <span></span><b></b></div>
+                    <div class="actions">
+                        <a href="../Search and Details/User Book Details.html" target="_self"><button
+                                class="button-details">Details</button></a>
+                        <button class="button-return">Return Book</button>
+                    </div>
+
+
+                </div>
+            </article>
+            <article class="book-cards">
+                <div class="card-headr">
+                    <h3>Clean Header</h3>
+                    <span>Robert C. Martin</span>
+                    <p><mark>Programming</mark></p>
+                </div>
+                <div class="card-body">
+                    <div class="info-row"> <span>Book ID</span><b>AS512</b></div>
+                    <hr>
+                    <div class="info-row"> <span>Borrow Date</span><b>Mar 10, 2026</b></div>
+                    <hr>
+                    <div class="info-row"> <span>Due Date</span><b>Apr 10, 2026</b></div>
+                    <hr>
+                    <div class="info-row"> <span>Status</span>
+                        <p class="status-overdue">•Overdue</p>
+                    </div>
+                    <div class="info-row"> <span></span><b></b></div>
+                    <div class="actions">
+                        <a href="../Search and Details/User Book Details.html" target="_self"><button
+                                class="button-details">Details</button></a>
+                        <button class="button-return">Return Book</button>
+                    </div>
+
+
+                </div>
+            </article>
+            <article class="book-cards">
+                <div class="card-headr">
+                    <h3>Clean Header</h3>
+                    <span>Robert C. Martin</span>
+                    <p><mark>Programming</mark></p>
+                </div>
+                <div class="card-body">
+                    <div class="info-row"> <span>Book ID</span><b>AS512</b></div>
+                    <hr>
+                    <div class="info-row"> <span>Borrow Date</span><b>Mar 10, 2026</b></div>
+                    <hr>
+                    <div class="info-row"> <span>Due Date</span><b>Apr 10, 2026</b></div>
+                    <hr>
+                    <div class="info-row"> <span>Status</span>
+                        <p class="status-active">•Active</p>
+                    </div>
+                    <div class="info-row"> <span></span><b></b></div>
+                    <div class="actions">
+                        <a href="../Search and Details/User Book Details.html" target="_self"><button
+                                class="button-details">Details</button></a>
+                        <button class="button-return">Return Book</button>
+                    </div>
 
 
 
-    <h1>My Borrowed Books</h1>
-    Here is the list of books you have borowed from our library:
-    <br>
-    <br>
-    <table width="600" height="200" , border-collapse="collapse" , border="solid" , style="text-align: center;">
+                </div>
+            </article>
+            </article>
+            <article class="book-cards">
+                <div class="card-headr">
+                    <h3>Clean Header</h3>
+                    <span>Robert C. Martin</span>
+                    <p><mark>Programming</mark></p>
+                </div>
+                <div class="card-body">
+                    <div class="info-row"> <span>Book ID</span><b>AS512</b></div>
+                    <hr>
+                    <div class="info-row"> <span>Borrow Date</span><b>Mar 10, 2026</b></div>
+                    <hr>
+                    <div class="info-row"> <span>Due Date</span><b>Apr 10, 2026</b></div>
+                    <hr>
+                    <div class="info-row"> <span>Status</span>
+                        <p class="status-active">•Active</p>
+                    </div>
+                    <div class="info-row"> <span></span><b></b></div>
+                    <div class="actions">
+                        <a href="../Search and Details/User Book Details.html" target="_self"><button
+                                class="button-details">Details</button></a>
+                        <button class="button-return">Return Book</button>
+                    </div>
 
-        <thead>
-            <th>&nbsp;Book ID&nbsp;</th>
-            <th>&nbsp;Book Name&nbsp;</th>
-            <th>&nbsp;Borrow Date&nbsp;</th>
-            <th>&nbsp;Return Date&nbsp;</th>
 
-        </thead>
-        <tbody>
-            <tr>
-                <td>&nbsp;As512&nbsp;</td>
-                <td>&nbsp;Clean Code &nbsp;</td>
-                <td>&nbsp;2026-1-2&nbsp;</td>
-                <td>&nbsp;2026-2-2&nbsp;</td>
-            </tr>
 
-        </tbody>
-        <tbody>
-            <tr>
-                <td>&nbsp;ISBN&nbsp;</td>
-                <td>&nbsp;The little prince &nbsp;</td>
-                <td>&nbsp;2025-9-10&nbsp;</td>
-                <td>&nbsp;currently borrowed&nbsp;</td>
-            </tr>
+                </div>
+            </article>
 
-        </tbody>
-        <tbody>
-            <tr>
-                <td>&nbsp;HTML101&nbsp;</td>
-                <td>&nbsp;Web Design Bassics &nbsp;</td>
-                <td>&nbsp;------------</td>
-                <td>&nbsp;Returned&nbsp;</td>
-            </tr>
+        </main>
 
-        </tbody>
-    </table>
 
-</body>
 
-</html>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+    </html>
