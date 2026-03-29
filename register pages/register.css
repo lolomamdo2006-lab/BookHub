@@ -12,15 +12,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-.create,
-.submit {
-    background-color: rgb(72, 169, 255);
-    border-color: rgb(72, 169, 255);
-    color: white;
-    padding: 4px;
-    margin-top: 10px;
-}
-
 form {
     padding: 10px;
     width: 70%;
@@ -33,27 +24,26 @@ button {
     width: 70%;
 }
 
-.forget {
-    color: grey;
-    margin-left: 6px;
-
-}
 
 .username,
-.password {
+.password,
+.confirm_password,
+.email {
 
     width: 100%;
     padding: 12px;
     margin: 0px 0 13px 0;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    /* border-radius: 10px; */
     outline: none;
-
+    border-top: none;
+    border-right: none;
+    border-left: none;
 }
 
 .username:focus,
 .password:focus {
-    border: 1px solid #000000;
+    border-bottom: 1px solid #000000;
 }
 
 
@@ -69,12 +59,16 @@ form {
 form:hover {
     transition: transform 0.5s, box-shadow 0.5s;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-  
     transform: translateY(+6px);
 
 }
 
-.submit {
+input[type=radio] {
+    accent-color: #000000;
+}
+
+.submit,
+.create {
     width: 100%;
     background-color: #556B2F;
     color: white;
@@ -83,33 +77,39 @@ form:hover {
     border-radius: 8px;
     cursor: pointer;
     font-size: 15px;
+    margin-top: 10px;
 }
 
-body.dark .submit {
-    border: 2px rgb(160, 208, 128) solid;
-      background-color: #3c3c3c;
-}
-body.dark .submit:hover{
-    transition: background-color .6s,box-shadow .6s;
-    box-shadow: 0 10px 25px rgb(160, 208, 128,0.2);
-       background-color: rgb(160, 208, 128);
+label {
+    font-size: 14px;
+    color: #556B2F;
+    font-weight: bold;
 }
 
-.signup {
+
+
+.signup,
+.login {
     text-align: center;
     margin-top: 15px;
     font-size: 15px;
-
     padding: 10px;
 }
 
-.signup a {
+.signup a,
+.login a {
     text-decoration: none;
     font-weight: bold;
     color: #556B2F;
 }
 
-.submit:hover {
+.signup a:hover,
+.login a:hover {
+    text-decoration: underline;
+}
+
+.submit:hover,
+.create:hover {
     background-color: #425c12;
 }
 
@@ -119,13 +119,15 @@ body.dark .submit:hover{
     border: none;
     background: transparent;
     cursor: pointer;
-    
+
 }
 
-.material-symbols-outlined:hover{
+.material-symbols-outlined:hover {
     font-size: 30px;
 }
 
+
+/* FOR DARK MODE */
 body.dark {
     background: #2c2c2c;
     color: #f5f5f5;
@@ -135,22 +137,49 @@ body.dark form {
     background-color: #3c3c3c;
     color: #f5f5f5;
 }
-        body.dark form h1 {
-            color: rgb(160, 208, 128);
-        }
-        
-body.dark form .password ,body.dark form .username {
-  background-color: #555;
+
+body.dark form h1,
+body.dark label,
+body.dark form .signup a,
+body.dark .login a {
+    color: rgb(160, 208, 128);
+}
+
+body.dark form .password,
+body.dark form .username,
+body.dark form .confirm_password,
+body.dark form .email {
+    background-color: transparent;
 
 }
-body.dark form .password:hover,body.dark form  .username:hover {
- box-shadow: 0 10px 25px rgb(160, 208, 128,0.4);
+
+body.dark form .password:hover,
+body.dark form .username:hover,
+body.dark form .confirm_password:hover,
+body.dark form .email:hover {
+    box-shadow: 0 10px 25px rgb(160, 208, 128, 0.4);
 }
-body.dark  form:hover {
+
+body.dark form:hover {
     transition: transform 0.5s, box-shadow 0.5s;
-    box-shadow: 0 10px 25px rgb(160, 208, 128,0.4);
-  
+    box-shadow: 0 10px 25px rgb(160, 208, 128, 0.4);
+
     transform: translateY(+6px);
 
 }
 
+body.dark .submit,
+body.dark .create {
+    border: 1px rgb(160, 208, 128) solid;
+    background-color: #3c3c3c;
+}
+
+body.dark .submit:hover,
+body.dark .create:hover {
+    transition: background-color .6s, box-shadow .6s;
+    box-shadow: 0 10px 25p 5px rgb(160, 208, 128, 0.2);
+    background-color: rgb(160, 208, 128);
+}
+body.dark input{
+    color: white;
+}

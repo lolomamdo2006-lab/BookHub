@@ -6,6 +6,10 @@
     <title>signup</title>
     <link rel="stylesheet" href="../Navbar/Navbar.css">
     <link rel="stylesheet" href="register.css">
+      <script src="register.js" defer></script>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode" />
+
+</head>
 
 </head>
 
@@ -19,35 +23,37 @@
             <hr class="hr">
             <li><a href="login.html" target="_self">Login</a></li>
         </ul>
+        <button class="material-symbols-outlined" onclick="toggleDarkMode()">dark_mode</button>
         <div class="menu-toggle">&#9776;</div>
     </nav>
     <script src="../Navbar/Navbar.js"></script>
     <br>
     <form action="login.html">
-        <div><label for="username" class="username">username</label>
+        <h1>Sign up</h1>
+        <div><label for="username" class="usernamelabel">Username</label>
         <input type="text" name="neme" class="username" required placeholder="alaa@mamdouh1"></div>
         
-        <div><label for="password" class="password">password</label>
+        <div><label for="password" class="passwordlabel">Password</label>
         <input type="password" required minlength="10" class="password" ></div>
-        <div> <label for="confirm_password">confirm password</label>
+        <div> <label for="confirm_passwordllabel">Confirm password</label>
         <input type="password" required minlength="10" class="confirm_password"></div>
       
-       <div><label for="email" class="email">email</label>
-        <input type="email" required placeholder="lolo_fci@gmail.com" class="email"></div>
+       <div><label for="email" class="emaillable">Email</label>
+        <input type="email" required placeholder="alaa_fci@gmail.com" class="email"></div>
         
-       <div><input type="radio" class="user" name="type"> <label for="user">user</label>
-        <input type="radio" class="admin" name="type"> <label for="admin">admin</label></div>
+       <div><input type="radio" class="user" name="type"> <label for="user">User</label>
+        <input type="radio" class="admin" name="type"> <label for="admin">Admin</label></div>
         <input type="submit" value="Create" class="create">
         <div class="have_acc"> 
-            <span>have an account? </span>
-        <a href="login.html" >login</a>
-          <p>or signup with</p>
+           <div class="login">Already have an account? <a href="login.html" >login</a></div> 
+        
+          <!-- <p>or signup with</p>
             
             <ul>
                 <li>Google</li>
                 <li>GitHub</li>
 
-            </ul>
+            </ul> -->
     </div>
    
        
