@@ -1,4 +1,3 @@
-
 const myBooks = [
     { id: "1", title: "Clean Code", author: "Robert C. Martin", category: "Programming", desc: "Amazing book for clean code." },
     { id: "2", title: "Eloquent JavaScript", author: "Marijn Haverbeke", category: "Programming", desc: "Deep dive into JS." },
@@ -20,12 +19,16 @@ if (foundBook) {
     if(title) title.innerText = foundBook.title;
     if(author) author.innerText = foundBook.author;
     if(badge) badge.innerText = foundBook.category;
-    const editLink = document.getElementById('edit');
-    
 
     if(labels[0]) labels[0].innerText = foundBook.id;
     if(labels[1]) labels[1].innerText = foundBook.title;
     if(labels[2]) labels[2].innerText = foundBook.author;
     if(labels[3]) labels[3].innerText = foundBook.category;
     if(labels[4]) labels[4].innerText = foundBook.desc;
+}
+
+if (foundBook && editLink) {
+    editLink.onclick = function(){
+    window.location.href = `../Book details/Edit Books.html?id=${foundBook.id}`;
+    }
 }
