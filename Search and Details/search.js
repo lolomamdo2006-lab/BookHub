@@ -19,6 +19,11 @@ function display(data) {
     availableGrid.innerHTML = '';
     unavailableGrid.innerHTML = '';
 
+    if (data.length === 0 && input.value === "") {
+        availableGrid.innerHTML = '<p class="no-results">Start typing to search for books...</p>';
+        return;
+    }
+
     data.forEach(book => {
         
         const borrowBtn = book.isAvailable 
@@ -75,15 +80,17 @@ if (input) {
         const term = e.target.value.toLowerCase();
         const filterType = filterSelect.value;
 
+        if (term === "") {
+            display([]); 
+            return;
+        }
+
+       
         const filtered = myBooks.filter(b => {
-            if (filterType === 'title') return b.title.toLowerCase().includes(term);
-            if (filterType === 'author') return b.author.toLowerCase().includes(term);
-            if (filterType === 'category') return b.category.toLowerCase().includes(term);
-            
-            
-            return b.title.toLowerCase().includes(term) || 
-                   b.author.toLowerCase().includes(term) || 
-                   b.category.toLowerCase().includes(term);
+            const val = filterType === 'all' 
+                ? (b.title + b.author + b.category) 
+                : b[filterType];
+            return val.toLowerCase().includes(term);
         });
 
         display(filtered);
@@ -91,4 +98,4 @@ if (input) {
 }
 
 
-display(myBooks);
+display();
