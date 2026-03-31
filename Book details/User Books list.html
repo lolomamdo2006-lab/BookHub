@@ -3,7 +3,7 @@
 <head>
 	<title>Books List</title>
 	<link rel="stylesheet" href="../Navbar/Navbar.css">
-</head>
+    <link rel="stylesheet" href="BooksListStyle.css">
 
 <body>
 	<nav class="navbar">
@@ -27,24 +27,58 @@
 	<br>
 
 	<h2>Books List </h2>
-	<table width="700" , height="80" , border-collapse="collapse" , border="solid" , style="text-align: center;">
-		<tr>
-			<th>Book ID</th>
-			<th>Book Name</th>
-			<th>Author</th>
-			<th>Category</th>
-			<th>Actions</th>
-		</tr>
-		<tr>
-			<td> AS512 </td>
-			<td> Clean Code </td>
-			<td> Robert C.Martin </td>
-			<td> Programming </td>
-			<td> <a href="../Search and Details/User Book Details.html">
-					<button> Details </button> </a>
-			</td>
-		</tr>
-	</table>
+	<div class="books-container">
+	    <div class="book-card">
+	    	<img src="cleanCode.jpg" alt="Clean Code" class="book-img"> 
+            <div class="book-info"> 
+                <h3 class="book-title">Clean Code</h3> 
+                <span class="book-category">Programming</span> 
+            </div>
+            <div class="buttons-container"> 
+                <a href="../Search and Details/User Book Details.html">
+                    <button class="details-btn">Details</button> 
+                </a>
+                <button class="borrow-btn">Borrow</button> 
+            </div>
+        </div> 
+
+        
+        <div class="book-card">
+	    	<img src="cleanCode.jpg" alt="Clean Code" class="book-img"> 
+            <div class="book-info"> 
+                <h3 class="book-title">Clean Code</h3> 
+                <span class="book-category">Programming</span> 
+            </div>
+            <div class="buttons-container"> 
+                <a href="../Search and Details/User Book Details.html">
+                    <button class="details-btn">Details</button> 
+                </a>
+                <button class="borrow-btn">Borrow</button> 
+            </div>
+        </div> 
+        
+        <div class="book-card">
+	    	<img src="cleanCode.jpg" alt="Clean Code" class="book-img"> 
+            <div class="book-info"> 
+                <h3 class="book-title">Clean Code</h3> 
+                <span class="book-category">Programming</span> 
+            </div>
+            <div class="buttons-container"> 
+                <a href="../Search and Details/User Book Details.html">
+                    <button class="details-btn">Details</button> 
+                </a>
+                <button class="borrow-btn">Borrow</button> 
+            </div>
+        </div> 
+
+        
+
+    </div> 
+
+</body>
+
+</html>
+		
 </body>
 
 </html>

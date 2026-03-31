@@ -3,6 +3,7 @@
 <head>
    <title>Adding new book</title>
    <link rel="stylesheet" href="../Navbar/Navbar.css">
+   <link rel="stylesheet" href="AddingNewBookStyle.css">
    </head>
    
    <body>
@@ -27,20 +28,26 @@
       <br>
 
    <h2>Add New Book </h2>
-   <form>
-      Book ID <input type="text"><br>
+   <form id="form">
+      Book ID <input type="text" name="bookId"><br>
       <br>
-      Book Name <input type="text"><br>
+      Book Name <input type="text" name="bookName"><br>
       <br>
-      Author <input type="text"><br>
+      Author <input type="text" name="author"><br>
       <br>
-      Category<input type="text"><br>
+      Category<input type="text" name="category"><br>
       <br>
-      Description <input type="text"><br>
+      Description <input type="text" name="description"><br>
       <br>
-      <button>Add Book</button>
+      <button type="button" id="addBookBtn">Add Book</button>
    </form>
-
+   <div class="overlay" id="addOverlay" style="display:none;"></div>
+    <div class="card" id="addSuccessBox" style="display:none;">
+    <h2>Success</h2>
+    <p>Book added successfully ✅</p>
+    <button class="save" onclick="closeAddPopup()">OK</button>
+    </div>
+   <script src="AddBookAction.js"></script>
 </body>
 
 </html>

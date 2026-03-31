@@ -4,6 +4,7 @@
 	<title>Books List</title>
 	<link rel="stylesheet" href="../Navbar/Navbar.css">
 	<link rel="stylesheet" type="text/css" href="EditAndDelete.css">
+    <link rel="stylesheet" type="text/css" href="BooksListAdminStyle.css">
 	</head>
 	
 	<body>
@@ -30,21 +31,18 @@
 		<h2>Books List </h2>
 		<table width="700" , height="80" , border-collapse="collapse" , border="solid" , style="text-align: center;">
 			<tr>
-				<th>Book ID</th>
 				<th>Book Name</th>
-				<th>Author</th>
 				<th>Category</th>
 				<th>Actions</th>
 			</tr>
 			<tr>
-				<td> AS512 </td>
 				<td> Clean Code </td>
-				<td> Robert C.Martin </td>
 				<td> Programming </td>
 				<td> <a href="Edit Books.html">
-						<button> Edit </button> </a>
+						<button class="edit-btn"> Edit </button> </a>
 					&nbsp
-						<button onclick="openDeletePopup()"> Delete </button>
+
+						<button class="delete-btn" onclick="openDeletePopup()"> Delete </button>
 				</td>
 			</tr>
 		</table>
@@ -64,7 +62,7 @@
 			<div class="card" id="successBox" style="display:none;">
 			    <h2>Success</h2>
 			    <br>
-			    <p>Book deleted successfully ✅</p>
+			    <p>Book deleted successfully </p>
 			    <br>
 
 			    <button class="save" onclick="closePopup()" style="width: 50%">OK</button>
