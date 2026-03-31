@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <title>search for a book</title>
     <link rel="stylesheet" href="../Navbar/Navbar.css">
-     <link rel="stylesheet" href="User Search.CSS">
+    <link rel="stylesheet" href="User Search.CSS">
 </head>
 
 <body>
     <nav class="navbar">
         <a href="../welcome page/welcome.html" target="_self" class="logo">Book Hup</a>
         <ul class="nav-links">
-
             <li><a href="../welcome page/welcome.html" target="_self">Home</a></li>
             <hr class="hr">
             <li><a href="../Book details/User Books list.html" target="_self">Book List</a></li>
@@ -24,47 +23,40 @@
             <li><a href="../welcome page/welcome.html" target="_self">Logout</a></li>
         </ul>
         <div class="menu-toggle">&#9776;</div>
-
     </nav>
     <script src="../Navbar/Navbar.js"></script>
 
-      <div class="search">
+    <div class="search">
         <h1> Search For a Book </h1>
-         <div class="searchbox">
-               <input type="text" placeholder="Search by Name or Author">
-            <button class="button">search</button>
-         </div>
- 
-    </div>
-    
-  <div class="books">
-    <div class="bookgroup">
-        <h2 class="grouptitle">Available Books</h2>
-        <div class="books-grid">
-            <div class="book-item">
-    <div class="bookinformation">
-        <span class="dot"></span>
-        <span class="bookname">Clean Code Book</span>
-    </div>
-    
-    <div class="actions">
-        <a href="User Book Details.html">
-            <button class="details">Show Details</button>
-        </a>
-        <button class="details">Borrow</button>
-    </div>
-</div>
+        <div class="searchbox">
+            <div class="search-bar">
+                <select id="search-filter">
+                    <option value="all">All</option>
+                    <option value="title">Title</option>
+                    <option value="author">Author</option>
+                    <option value="category">Category</option>
+                </select>
+                <input type="text" placeholder="Search for a book...">
             </div>
-    </div>
-
-    <div class="bookgroup">
-        <h2 class="grouptitle">Not Available Books</h2>
-        <div class="books-grid">
-             <p class="emptymsg">No books currently unavailable.</p>
+            <button class="button">search</button>
         </div>
     </div>
-</div>
-<script src="search.js"></script>
-</body>
+    
+    <div class="books">
+        <div class="bookgroup">
+            <h2 class="grouptitle">Available Books</h2>
+            <div id="available-grid" class="books-grid">
+                </div>
+        </div>
 
+        <div class="bookgroup">
+            <h2 class="grouptitle">Not Available Books</h2>
+            <div id="unavailable-grid" class="books-grid">
+                <p class="emptymsg">No books currently unavailable.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="search.js"></script>
+</body>
 </html>
