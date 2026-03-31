@@ -1,4 +1,4 @@
-
+       localStorage.setItem("login","false");
 const admins=[];
     admins[0] = {
       username: "admin",
@@ -25,6 +25,7 @@ form.addEventListener("submit", function(e){
   for(i in admins){
     if( admins[i].username==username&&admins[i].password==password){
        heIsAdmin=true;
+       localStorage.setItem("login","true");
          window.location.href = "../Book details/Admin Books list.html";
        break;
     }
@@ -32,7 +33,7 @@ form.addEventListener("submit", function(e){
   for(i in users){
     if( users[i].username==username&&users[i].password==password){
        heIsUser=true;
-
+       localStorage.setItem("login","true");
          window.location.href = "../Book details/User Books list.html";
        break;
     }
@@ -49,3 +50,5 @@ form.addEventListener("submit", function(e){
     function toggleDarkMode() {
         document.body.classList.toggle('dark');
     }
+
+

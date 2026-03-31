@@ -116,3 +116,4 @@ function returnBook(bookId) {
 window.onload = function () {
     renderCards(borrowedBooks);
 };
+
