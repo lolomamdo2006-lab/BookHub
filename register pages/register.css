@@ -13,8 +13,10 @@ h1 {
 }
 
 form {
+
     padding: 10px;
     width: 70%;
+ 
     margin-left: auto;
     margin-right: auto;
 }
@@ -114,6 +116,7 @@ label {
 }
 
 .material-symbols-outlined {
+    display: inline;
     font-size: 25px;
     color: #ffffff;
     border: none;
@@ -125,56 +128,6 @@ label {
 .material-symbols-outlined:hover {
     font-size: 30px;
 }
-
-
-:root {
-  --olive-dark: #344e41;
-  --olive: #588157;
-  --olive-light: #a3b18a;
-  --beige: #f5f5dc;
-  --bg: #e8ede0;      
-  --card-bg: #fdf9f2;  
-}
-
-
-.navbar {
-  
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;  
-  align-items: center;
-  padding: 18px 50px;
-  background: linear-gradient(135deg, #4a6635 0%, #5e8045 100%);
-  box-shadow: 0 6px 15px rgba(36, 52, 32, 0.3);
-  z-index: 10;
-  gap: 10px;
-}
-
-.navbar .logo {
-  font-size: 26px;
-  font-weight: bold;
-  color: var(--beige);
-  text-decoration: none;
-  margin-right: auto; 
-}
-
-.nav-links a {
-  color: var(--beige);
-  padding: 8px 14px;
-  border-radius: 10px;
-  border: 1px solid transparent;
-  text-decoration: none;
-  transition: 0.3s;
-  font-size: 14px;
-}
-
-.nav-links a:hover {
-  border: 1px solid rgba(245, 240, 232, 0.6);
-  box-shadow: 0 0 8px rgba(245, 240, 232, 0.3);
-  color: var(--beige);
-}
-
 
 
 

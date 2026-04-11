@@ -10,15 +10,19 @@ menuToggle.onclick = function () {
 
 logout.addEventListener("click", function() {
 localStorage.setItem("login","false");
- login.style.display="none"
+ login.style.display="none";
 });
 
 if(isLogin === "true"){
     login.style.display = "none";  
-    logout.style.display = "flex"; 
-    notInLogout.style.display="flex" 
+    logout.style.display = "inline"; 
+    removeme.style.display="inline"
+
 } else {
-    login.style.display = "flex";  
+    login.style.display = "inline";  
     logout.style.display = "none"; 
-    notInLogout.style.display="none" 
+    logout.parentNode.style.display = "none"; 
+    
+    removeme.style.display="none" 
+        removeme.parentNode.style.display="none" 
 }
