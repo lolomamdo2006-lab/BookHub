@@ -32,3 +32,6 @@ if (foundBook && editLink) {
     window.location.href = `../Book details/Edit Books.html?id=${foundBook.id}`;
     }
 }
+function toggleDarkMode() {
+        document.body.classList.toggle('dark');
+    }
