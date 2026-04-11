@@ -6,42 +6,44 @@
 }
 
 .navbar {
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;  
-  align-items: center;
-  padding: 18px 50px;
-  background: linear-gradient(135deg, #4a6635 0%, #5e8045 100%);
-  box-shadow: 0 6px 15px rgba(36, 52, 32, 0.3);
-  z-index: 10;
-  gap: 10px;
+   top: 0;
+   width: 100%;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   padding: 18px 50px;
+   background: linear-gradient(135deg, #4a6635 0%, #5e8045 100%);
+   box-shadow: 0 6px 15px rgba(36, 52, 32, 0.3);
+   z-index: 10;
+   gap: 10px;
 }
 
 .navbar .logo {
-  font-size: 26px;
-  font-weight: bold;
-  font-family: "Momo Signature", cursive;
-  color: #e8ede0;
-  text-decoration: none;
-  margin-right: auto; 
-  flex: 1;
+   font-size: 26px;
+   font-weight: bold;
+   font-family: "Momo Signature", cursive;
+   color: #e8ede0;
+   text-decoration: none;
+   margin-right: auto;
+   white-space: nowrap;
+   flex: 1;
+
 }
 
 .nav-links a {
-  color: #e8ede0;
-  padding: 8px 14px;
-  border-radius: 10px;
-  border: 1px solid transparent;
-  text-decoration: none;
-  transition: 0.3s;
-  font-size: 14px;
+   color: #e8ede0;
+   padding: 8px 14px;
+   border-radius: 10px;
+   border: 1px solid transparent;
+   text-decoration: none;
+   transition: 0.3s;
+   font-size: 14px;
 }
 
 .nav-links a:hover {
-  border: 1px solid rgba(245, 240, 232, 0.6);
-  box-shadow: 0 0 8px rgba(245, 240, 232, 0.3);
-  color: #f5f5dc;
+   border: 1px solid rgba(245, 240, 232, 0.6);
+   box-shadow: 0 0 8px rgba(245, 240, 232, 0.3);
+   color: #f5f5dc;
 }
 
 
@@ -76,7 +78,7 @@
       top: 64px;
       left: 0;
       width: 100%;
-      background: linear-gradient(190deg, #FFFAF0, #FFFAF0);
+      background: linear-gradient(135deg, #4a6635 0%, #5e8045 100%);
       text-align: center;
       padding: 10px;
    }
@@ -86,7 +88,7 @@
 
    }
 
-   .nav-links li  {
+   .nav-links li {
       margin: 10px 0;
    }
 

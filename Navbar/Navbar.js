@@ -14,6 +14,7 @@ localStorage.setItem("login","false");
 });
 
 if(isLogin === "true"){
+    
     login.style.display = "none";  
     logout.style.display = "inline"; 
     removeme.style.display="inline"
