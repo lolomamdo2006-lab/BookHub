@@ -5,6 +5,17 @@ let login = document.getElementById("loginb");
 let removeme = document.getElementById("notInLogout");
 let isLogin = localStorage.getItem("login");
 
+function applyTheme() {
+    const Themes = localStorage.getItem('theme');
+    if (Themes === 'dark') {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.remove('dark');
+    }
+}
+
+
+applyTheme();
 
 if (menuToggle) {
     menuToggle.onclick = function () {
@@ -21,31 +32,19 @@ if (logout && login) {
 
     if (isLogin === "true") {
         login.style.display = "none";
-        login.parentNode.style.display = "none";
+        
         logout.style.display = "inline";
-         removeme.style.display = "inline";
+        if(removeme) removeme.style.display = "inline";
     } else {
         login.style.display = "inline";
         logout.style.display = "none";
-       removeme.style.display = "none";
-       logout.parentNode.style.display="none"
-       removeme.parentNode.style.display="none"
+       
+       if(removeme) removeme.style.display = "none";
     }
 }
 
 
 
-function applyTheme() {
-    const Themes = localStorage.getItem('theme');
-    if (Themes === 'dark') {
-        document.body.classList.add('dark');
-    } else {
-        document.body.classList.remove('dark');
-    }
-}
-
-
-applyTheme();
 
 function toggleDarkMode() {
     document.body.classList.toggle('dark');
