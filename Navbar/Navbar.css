@@ -28,6 +28,7 @@
    white-space: nowrap;
    flex: 1;
 
+
 }
 
 .nav-links a {
@@ -81,6 +82,7 @@
       background: linear-gradient(135deg, #4a6635 0%, #5e8045 100%);
       text-align: center;
       padding: 10px;
+      z-index: 1001;
    }
    
 
