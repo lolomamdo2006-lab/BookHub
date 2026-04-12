@@ -34,6 +34,7 @@ if (logout && login) {
 }
 
 
+
 function applyTheme() {
     const Themes = localStorage.getItem('theme');
     if (Themes === 'dark') {
