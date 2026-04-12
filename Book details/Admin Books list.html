@@ -1,81 +1,177 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<title>Books List</title>
-	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode" />
-
-	<link rel="stylesheet" href="../Navbar/Navbar.css">
-	<link rel="stylesheet" type="text/css" href="EditAndDelete.css">
+    <meta charset="UTF-8">
+    <title>Books List - Admin</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode" />
+    <link rel="stylesheet" href="../Navbar/Navbar.css">
+    <link rel="stylesheet" type="text/css" href="EditAndDelete.css">
     <link rel="stylesheet" type="text/css" href="BooksListAdminStyle.css">
-	</head>
-	
-	<body>
-		<nav class="navbar">
-       <a href="../register pages\welcome.html" target="_self" class="logo">Book Hub</a>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="../register pages/welcome.html" target="_self" class="logo">Book Hub</a>
         <ul class="nav-links">
+            <li><a href="../register pages/welcome.html" target="_self">Home</a></li>
+            <hr class="hr">
+            <li><a href="Admin Books list.html" target="_self">Book List</a></li>
+            <hr class="hr">
+            <li><a href="../Search and Details/Admin Search.html" target="_self">Search</a></li>
+            <hr class="hr">
+            <li><a href="../Book details/Adding new Book.html" target="_self">Adding new book</a></li>
+            <hr class="hr">
+            <li><a id="logoutb" href="../register pages/login.html" target="_self">Logout</a></li>
+            <li><a id="loginb" href="../register pages/login.html" target="_self">Log In</a></li>
+        </ul>
+        <button class="material-symbols-outlined" id="darkModeBtn" title="change_mode" onclick="toggleDarkMode()">dark_mode</button>
+        <div class="menu-toggle">&#9776;</div>
+    </nav>
+    <script src="../Navbar/Navbar.js"></script>
 
-            <li><a href="../register pages\welcome.html" target="_self">Home</a></li>
-				<hr class="hr">
-				<li><a href="Admin Books list.html" target="_self">Book List</a></li>
-				<hr class="hr">
-				<li><a href="../Search and Details/Admin Search.html" target="_self">Search</a></li>
-				<hr class="hr">
-				<li><a href="../Book details/Adding new  Book.html" target="_self">Adding new book</a></li>
-				<hr class="hr">
-            <li><a id="logoutb" href="../register pages\login.html" target="_self">Logout</a></li>
-            <li><a id="loginb" href="../register pages\login.html" target="_self">Log In</a></li>
-			</ul>
-			<button class="material-symbols-outlined" title="change_mode" onclick="toggleDarkMode()">dark_mode</button>
-			<div class="menu-toggle">&#9776;</div>
-	
-		</nav>
-		<script src="../Navbar/Navbar.js"></script>
-		<br>
+    <div class="container">
+        <section class="category-group">
+            <h2 class="section-title">✨ Newly Added </h2>
+            <div class="books-container">
+                <div class="book-card trending">
+                    <div class="badge">New</div>
+                    <img src="cleanCode.jpg" alt="Clean Code" class="book-img">
+                    <div class="book-info">
+                        <h3 class="book-title">Clean Code</h3>
+                        <span class="book-category">Programming</span>
+                    </div>
+                    <div class="buttons-container">
+                        <a href="Edit Books.html?id=1"><button class="edit-btn">Edit</button></a>
+                        <button class="delete-btn" onclick="openDeletePopup('1')">Delete</button>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-value"><span class="status-pill"><span class="status-dot"></span> Admin Control</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="category-group">
+            <h2 class="section-title"> 📈 Trending</h2>
+            <div class="books-container">
+                <div class="book-card trending">
+                    <div class="badge">New</div>
+                    <img src="cleanCode.jpg" alt="Clean Code" class="book-img">
+                    <div class="book-info">
+                        <h3 class="book-title">Clean Code</h3>
+                        <span class="book-category">Programming</span>
+                    </div>
+                    <div class="buttons-container">
+                        <a href="Edit Books.html?id=1"><button class="edit-btn">Edit</button></a>
+                        <button class="delete-btn" onclick="openDeletePopup('1')">Delete</button>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-value"><span class="status-pill"><span class="status-dot"></span> Admin Control</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-		<h2>Books List </h2>
-		<table width="700" , height="80" , border-collapse="collapse" , border="solid" , style="text-align: center;">
-			<tr>
-				<th>Book Name</th>
-				<th>Category</th>
-				<th>Actions</th>
-			</tr>
-			<tr>
-				<td> Clean Code </td>
-				<td> Programming </td>
-				<td> <a href="Edit Books.html?id=1">
-    				<button class="edit-btn">Edit</button>
-					</a>
-					&nbsp
+        <section class="category-group">
+            <h2 class="section-title">💻 Programming & Tech</h2>
+            <div class="books-container">
+                <div class="book-card">
+                    <img src="cleanCode.jpg" alt="Clean Code" class="book-img">
+                    <div class="book-info">
+                        <h3 class="book-title">JavaScript Patterns</h3>
+                        <span class="book-category">Programming</span>
+                    </div>
+                    <div class="buttons-container">
+                        <a href="Edit Books.html?id=2"><button class="edit-btn">Edit</button></a>
+                        <button class="delete-btn" onclick="openDeletePopup('2')">Delete</button>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-value"><span class="status-pill"><span class="status-dot"></span> Admin Control</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-						<button class="delete-btn" onclick="openDeletePopup('1')">Delete</button>
-				</td>
-			</tr>
-		</table>
+        <section class="category-group">
+            <h2 class="section-title">🍳 Cooking & Food</h2>
+            <div class="books-container">
+                <div class="book-card">
+                    <img src="cleanCode.jpg" alt="Cook Book" class="book-img">
+                    <div class="book-info">
+                        <h3 class="book-title">Mastering Food</h3>
+                        <span class="book-category">Cooking</span>
+                    </div>
+                    <div class="buttons-container">
+                        <a href="Edit Books.html?id=3"><button class="edit-btn">Edit</button></a>
+                        <button class="delete-btn" onclick="openDeletePopup('3')">Delete</button>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-value"><span class="status-pill"><span class="status-dot"></span> Admin Control</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-		<div id="overlay" class="overlay" style="display:none;">
+        <section class="category-group">
+            <h2 class="section-title">🏛️ History & Culture</h2>
+            <div class="books-container">
+                <div class="book-card">
+                    <img src="cleanCode.jpg" alt="History Book" class="book-img">
+                    <div class="book-info">
+                        <h3 class="book-title">The Silk Roads</h3>
+                        <span class="book-category">History</span>
+                    </div>
+                    <div class="buttons-container">
+                        <a href="Edit Books.html?id=4"><button class="edit-btn">Edit</button></a>
+                        <button class="delete-btn" onclick="openDeletePopup('4')">Delete</button>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-value"><span class="status-pill"><span class="status-dot"></span> Admin Control</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-			<div class="card" id="confirmBox">
-			    <h2>Delete Book</h2>
-			    <br>
-			    <p>Do you really want to delete this book?</p>
-			    <br>
+        <section class="category-group">
+            <h2 class="section-title">📖 Fiction & Novels</h2>
+            <div class="books-container">
+                <div class="book-card">
+                    <img src="cleanCode.jpg" alt="Novel" class="book-img">
+                    <div class="book-info">
+                        <h3 class="book-title">The Great Gatsby</h3>
+                        <span class="book-category">Fiction</span>
+                    </div>
+                    <div class="buttons-container">
+                        <a href="Edit Books.html?id=5"><button class="edit-btn">Edit</button></a>
+                        <button class="delete-btn" onclick="openDeletePopup('5')">Delete</button>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-value"><span class="status-pill"><span class="status-dot"></span> Admin Control</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-			    <button class="delete" onclick="confirmDelete()">Yes</button>
-			    <button class="cancel" onclick="closePopup()">Cancel</button>
-			</div>
+    <div id="overlay" class="overlay" style="display:none;">
+        <div class="card" id="confirmBox">
+            <h2>Delete Book</h2>
+            <br>
+            <p>Do you really want to delete this book?</p>
+            <br>
+            <button class="delete" onclick="confirmDelete()">Yes</button>
+            <button class="cancel" onclick="closePopup()">Cancel</button>
+        </div>
+        <div class="card" id="successBox" style="display:none;">
+            <h2>Success</h2>
+            <br>
+            <p>Book deleted successfully</p>
+            <br>
+            <button class="save" onclick="closePopup()" style="width: 50%">OK</button>
+        </div>
+    </div>
 
-			<div class="card" id="successBox" style="display:none;">
-			    <h2>Success</h2>
-			    <br>
-			    <p>Book deleted successfully </p>
-			    <br>
-
-			    <button class="save" onclick="closePopup()" style="width: 50%">OK</button>
-			</div>
-
-		</div>
-		<script src="EditAndDelete.js"></script>
-	</body>
-
+    <script src="EditAndDelete.js"></script>
+</body>
 </html>

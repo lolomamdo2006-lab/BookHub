@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(135deg, #f5f0e8 0%, #e8ede0 100%);
+    background: #f7f3ec;
 }
 
 .body {
@@ -9,9 +9,26 @@ body {
 
 }
 
-.header {
-    text-align: center;
+
+.header h1 {
+  text-align: center;
+  color: #4a6635;
+  text-shadow: 1px 1px 3px rgba(245, 240, 232, 0.6);
+  margin-top: 20px;
+  font-family: "Momo Signature", cursive;
+  font-size: 28px;
+  letter-spacing: 1px;
+  position: relative;
 }
+
+.header p {
+  text-align: center;
+  color: #3e521c;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+
 
 .states-containers {
     display: flex;
@@ -165,33 +182,73 @@ body {
 }
 
 
-
-
-
 body.dark {
-    background: #2c2c2c;
+    background: #1a1a1a;
     color: #f5f5f5;
 }
 
-
-body.dark .state-card,
-body.dark .book-cards {
-    background: #3c3c3c;
-    border: 1px solid #555;
-    color: #f5f5f5;
+body.dark .header h1 {
+    color: #6ea74b;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
-body.dark .card-body span,
 body.dark .header p {
-    color: #999;
+    color: #a3b18a;
 }
 
+body.dark .state-card {
+    background: #2d2d2d;
+    color: #e9e0c9;
+    border: 1px solid #4a6635;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .book-cards {
+    background: #2d2d2d;
+    border: 1px solid #444;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+body.dark .card-headr {
+    background: linear-gradient(135deg, #344e41 0%, #4a6635 100%);
+}
+
+body.dark .card-body span {
+    color: #a3b18a;
+}
 
 body.dark .info-row b {
     color: #ffffff;
 }
 
+body.dark .status-active {
+    background: #1b2e1c;
+    color: #81c784;
+    border-color: #2e7d32;
+}
+
 body.dark .button-details {
-    color: #9be67d;
-    border-color: #9be67d;
+    color: #6ea74b;
+    border-color: #6ea74b;
+    background: transparent;
+}
+
+body.dark .button-details:hover {
+    background-color: rgba(110, 167, 75, 0.1);
+}
+
+body.dark .button-return {
+    background: #588157;
+    border-color: #588157;
+    color: #ffffff;
+}
+
+body.dark .button-return:hover {
+    background-color: #6ea74b;
+    border-color: #6ea74b;
+}
+
+body.dark .book-cards:hover {
+    box-shadow: 0 0 15px rgba(110, 167, 75, 0.3);
+    border-color: #5e8045;
 }

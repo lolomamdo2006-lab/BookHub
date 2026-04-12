@@ -1,6 +1,6 @@
 
 body {
-   background: linear-gradient(135deg, #f5f0e8 0%, #e8ede0 100%); 
+   #f7f3ec; 
     
 }
 
@@ -10,6 +10,7 @@ body {
 }
 .page-header h1{
  color: #3b4a2f;
+ font-family: "Momo Signature", cursive;
 }
 .page-header p{
    color: #7a8a6a;
@@ -149,65 +150,74 @@ body {
 }
 
 body.dark {
-    background: #2c2c2c;
+    background: #1a1a1a;
     color: #f5f5f5;
 }
-body.dark .page-header h1{
-    color: #67a63c;
+
+body.dark .page-header h1 {
+    color: #6ea74b;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
-body.dark .page-header {
-    color: #b2f783;
+
+body.dark .page-header p {
+    color: #a3b18a;
 }
+
 body.dark .card {
-    background-color: #3c3c3c;
-     box-shadow: 0 10px 25px rgb(160, 208, 128, 0.4);
-    
+    background-color: #2d2d2d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid #444;
 }
-body.dark .card-body {
-    color: #f5f5f5;
-}
+
 body.dark .card-top {
-    background: linear-gradient(135deg, #4a6635 0%, #5e8045 100%);
+    background: linear-gradient(135deg, #344e41 0%, #4a6635 100%);
 }
-body.dark .card-top h2 {
-    color: #f5f0e8;
+
+body.dark .card-body {
+    background-color: #2d2d2d;
 }
-body.dark .card-top span {
-    color: #c8d9b8;
+
+body.dark .info-row {
+    border-bottom: 1px solid #444;
 }
-body.dark .badge {
-    background: #8aaf6a;
-    color: #1e3310;
-}
+
 body.dark .info-label {
-    color: #9be67d;
+    color: #a3b18a;
 }
+
 body.dark .info-value {
-    color: #d5edd6;
-}
-body.dark .status-pill {
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    border: 1px solid #c8e6c9;
-}
-body.dark .status-dot {
-    background-color: #2e7d32;
-}
-body.dark .card-footer {
-    background-color: #333333;
-}
-body.dark .card-footer button {
-   background: linear-gradient(135deg, #4a6635 0%, #5e8045 100%);
-    color: beige;
-    box-shadow: #9cc581 0px 4px 6px , #234906 0px 6px 10px;
-}
-body.dark .card-footer button:active {
-    box-shadow: #1e3310 0px 2px 4px , #080c05 0px 3px 10px;
-}
-body.dark .material-symbols-outlined {
     color: #ffffff;
 }
-body.dark .material-symbols-outlined:hover {
-    font-size: 30px;
+
+body.dark .status-pill {
+    background-color: #1b2e1c;
+    color: #81c784;
+    border: 1px solid #2e7d32;
 }
+
+body.dark .status-dot {
+    background-color: #81c784;
+}
+
+body.dark .card-footer {
+    background-color: #252525;
+    border-top: 1px solid #444;
+}
+
+body.dark .card-footer button {
+    background: linear-gradient(135deg, #588157 0%, #3a5a40 100%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: #f5f5f5;
+}
+
+body.dark .card-footer button:hover {
+    box-shadow: 0 0 12px rgba(110, 167, 75, 0.4);
+    transform: translateY(-2px);
+}
+
+body.dark .badge {
+    background: #4a6635;
+    color: #e9e0c9;
+}
+
 

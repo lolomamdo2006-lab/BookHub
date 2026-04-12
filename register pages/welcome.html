@@ -11,31 +11,35 @@
 
 </head>
 <body>
-     <nav class="navbar">
-        <a href="../register pages\welcome.html" target="_self" class="logo">Book Hub</a>
-        <ul class="nav-links">
+<nav class="navbar">
+    <a href="welcome.html" class="logo">Book Hub</a>
+    <ul class="nav-links">
+        <li><a href="welcome.html">Home</a></li>
+        <li><a href="../Book details/User Books list.html">Book List</a></li>
+        <li><a href="../Search and Details/User Search.html">Search</a></li>
+        <li><a href="../Borrowed Books/Borrowed Books.html">My Borrowed Books</a></li>
+        <li><a href="login.html">Logout</a></li>
+    </ul>
+    <button class="material-symbols-outlined" onclick="toggleDarkMode()">dark_mode</button>
+</nav>
 
-            <li><a href="../register pages\welcome.html" target="_self">Home</a></li>
-            <hr class="hr">
-            <li><a href="../Book details/User Books list.html" target="_self">Book List</a></li>
-            <hr class="hr">
-            <li><a href="../Search and Details/User Search.html" target="_self">Search</a></li>
-            <hr class="hr">
-            <li><a id="notInLogout" href="../Borrowed Books/Borrowed Books.html" target="_self">My Borrowed Books</a></li>
-            <hr class="hr">
-             <li><a id="logoutb" href="../register pages\login.html" target="_self">Logout</a></li>
-            <li><a id="loginb" href="../register pages\login.html" target="_self">Log In</a></li>
-        </ul>
-                <button class="material-symbols-outlined" title="change_mode" onclick="toggleDarkMode()">dark_mode</button>
-        <div class="menu-toggle">&#9776;</div>
-    </nav>
-    <div class="container">    <h1>Welcome to Book Hub</h1>
-    <span>Read, in the Name of your Lord Who created</span>
-    <h3>(ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ)</h3>
-    <span>Join us and find your next favorite book</span>
-    <div class="getStart"><a href="login.html">Get Started</a></div></div>
-
-    
-
+<div class="welcome-wrapper">
+    <div class="left-side">
+        <div class="content-box">
+            <h1>Welcome to <span>Book Hub</span></h1>
+            <p class="sub-text">Read, in the Name of your Lord Who created</p>
+            <h3>(ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ)</h3>
+            <p class="description">Join us and find your next favorite book among thousands of titles.</p>
+            <div class="getStart">
+                <a href="login.html">Get Started</a>
+            </div>
+        </div>
+    </div>
+    <div class="right-side">
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=2070" alt="Books">
+        </div>
+    </div>
+</div>
 </body>
 </html>

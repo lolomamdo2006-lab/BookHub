@@ -13,8 +13,8 @@ body {
 }
 
 .search h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
+    font-family: "Momo Signature", cursive;
+    font-size: 32px;
     margin-bottom: 20px;
 }
 
@@ -186,50 +186,76 @@ button:hover {
 }
 
 body.dark {
-    background: #2c2c2c;
+    background: #1a1a1a;
     color: #f5f5f5;
 }
+
 body.dark .search {
-   
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #344e41 0%, #4a6635 100%);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
+
 body.dark .search h1 {
     color: #f5f5f5;
 }
+
 body.dark .search-bar {
-    background: #3d3d3d;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    background: #2d2d2d;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
 }
+
 body.dark .search-bar input {
-    color: #f5f5f5;
+    color: #ffffff;
 }
+
+body.dark #search-filter {
+    color: #a3b18a;
+    border-right: 1px solid #444;
+}
+
 body.dark .button {
-    background-color: #4a6635;
-    box-shadow: 0 4px 15px rgba(3, 10, 1, 0.7);
+    background-color: #588157;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
+
 body.dark .button:hover {
-    background-color: #93bb77;
+    background-color: #6ea74b;
 }
+
 body.dark .book-item {
-    background: #3c3c3c;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border: 1px solid #555;
+    background: #2d2d2d;
+    border: 1px solid #444;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
+
 body.dark .book-item:hover {
-    box-shadow: 0 10px 20px rgb(160, 208, 128, 0.4);
+    box-shadow: 0 0 15px rgba(110, 167, 75, 0.3);
+    border-color: #5e8045;
 }
+
 body.dark .bookname {
-    color: #f5f5f5;
+    color: #ffffff;
 }
+
 body.dark .dot {
-    background-color: #67a63c;
+    background-color: #6ea74b;
 }
+
+body.dark .grouptitle {
+    color: #6ea74b;
+    border-left-color: #6ea74b;
+}
+
+body.dark .details {
+    background-color: #588157;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .details:hover {
+    background-color: #6ea74b;
+}
+
 body.dark .emptymsg,
 body.dark .no-results {
-    color: #999;
-    font-style: italic;
-}
-body.dark .grouptitle {
-     color: #9be67d;
-    border-left: 5px solid #cdf8a8;
+    color: #a3b18a;
 }

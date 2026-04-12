@@ -1,5 +1,5 @@
 body{
-	background: linear-gradient(135deg, #f5f0e8 0%, #e8ede0 100%);
+	background: #f7f3ec;
 	font-family: Arial;
 }
 
@@ -16,16 +16,12 @@ h2 {
 	padding: 25px;
 	justify-content: center;
 	width: 550px;
-	background-color: #fffdf9;
+	background-color: #efe9df;
+	border: 2px solid #4a6635;
 	border-radius: 16px;
-	box-shadow: 0 4px 15px rgba(3, 10, 1, 0.65);
+	box-shadow: 0 6px 20px rgba(245, 240, 232, 0.4); 
 	text-align: center;
 }
-
-.card:hover {
-	box-shadow: 0 0 60px rgba(0,0,0,0.4);
-}
-
 
 input{
 	width: 100%;
@@ -61,7 +57,8 @@ input{
 }
 
 button:hover, input:hover {
-    box-shadow: 0 4px 15px rgba(3, 10, 1, 0.65);
+	border: 1px solid #f5f0e8;
+    box-shadow: 0 0 12px rgba(245, 240, 232, 0.5);
     cursor: pointer;
 }
 
@@ -91,33 +88,51 @@ button:hover, input:hover {
 }
 
 body.dark {
-    background: #2c2c2c;
+    background: #1a1a1a;
     color: #f5f5f5;
 }
 
-body.dark h2{
-    color: #67a63c;
+body.dark h2 {
+    color: #6ea74b;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 body.dark .card {
-    background-color: #3c3c3c;
-    box-shadow: 0 10px 25px rgb(160, 208, 128, 0.4);    
+    background-color: #2d2d2d;
+    border-color: #4a6635;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
-body.dark .material-symbols-outlined:hover {
-    font-size: 30px;
+body.dark input {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #4a6635;
 }
 
-body.dark input{
-	background-color: #2f2f2f;
-	color: white;
-	border: 1px solid #6ea74b;
+body.dark input:focus {
+    border-color: #6ea74b;
+    box-shadow: 0 0 8px rgba(110, 167, 75, 0.4);
 }
 
-body.dark .save, body.dark .cancel{
-	color: white;
+body.dark .save, body.dark .delete {
+    background: linear-gradient(135deg, #344e41 0%, #4a6635 100%);
+    color: #f5f5f5;
 }
 
-body.dark .cancel{
-	background-color: gray;
+body.dark .cancel {
+    background-color: #444444;
+    color: #ffffff;
+}
+
+body.dark button:hover, body.dark input:hover {
+    border: 1px solid #6ea74b;
+    box-shadow: 0 0 12px rgba(110, 167, 75, 0.5);
+}
+
+body.dark .overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+body.dark .material-symbols-outlined {
+    color: #f5f5f5;
 }
