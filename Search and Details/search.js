@@ -1,32 +1,47 @@
-
-const myBooks = [
-    { id: "1", title: "Clean Code", author: "Robert C. Martin", category: "Programming", isAvailable: true },
-    { id: "2", title: "Eloquent JavaScript", author: "Marijn Haverbeke", category: "Programming", isAvailable: true },
-    { id: "3", title: "Design Patterns", author: "Erich Gamma", category: "Design", isAvailable: true }
-];
-
-
+let myBooks = []; 
 const input = document.querySelector('.searchbox input');
-const filterSelect = document.getElementById('search-filter');
+const searchButton = document.querySelector('.button');
 const availableGrid = document.getElementById('available-grid');
 const unavailableGrid = document.getElementById('unavailable-grid');
+const filterSelect = document.getElementById('search-filter'); 
+
+
+async function loadBooksFromServer() {
+    try {
+        const response = await fetch('http://127.0.0.1:8000/api/books/');
+        if (!response.ok) throw new Error('Server error');
+        
+        const data = await response.json();
+        
+        
+        myBooks = data.map(book => ({
+            ...book,
+            isAvailable: book.is_available === true
+        }));
+
+        console.log("Books loaded and ready for searching."); 
+
+    } catch (error) {
+        console.error('Connection Error:', error);
+    }
+}
 
 
 function display(data) {
     if (!availableGrid || !unavailableGrid) return;
-
     
     availableGrid.innerHTML = '';
     unavailableGrid.innerHTML = '';
 
-    if (data.length === 0 && input.value === "") {
-        availableGrid.innerHTML = '<p class="no-results">Start typing to search for books...</p>';
+    if (data.length === 0) {
+        availableGrid.innerHTML = '<p class="no-results">No books found.</p>';
         return;
     }
 
+    const isAdmin = window.location.href.includes('Admin');
+
     data.forEach(book => {
-        
-        const borrowBtn = book.isAvailable 
+        const borrowBtn = (book.isAvailable && !isAdmin) 
             ? `<button class="details" onclick="borrowBook('${book.id}')">Borrow</button>` 
             : ''; 
 
@@ -43,61 +58,78 @@ function display(data) {
             </div>
         `;
 
-        
         if (book.isAvailable) {
             availableGrid.innerHTML += bookHTML;
         } else {
             unavailableGrid.innerHTML += bookHTML;
         }
     });
-
-    
-    if (availableGrid.innerHTML === '') availableGrid.innerHTML = '<p class="no-results">No books available.</p>';
-    if (unavailableGrid.innerHTML === '') unavailableGrid.innerHTML = '<p class="emptymsg">No books currently unavailable.</p>';
 }
 
 
-function borrowBook(bookId) {
-    const book = myBooks.find(b => b.id === bookId);
-    if (book) {
-        book.isAvailable = false; 
-        display(myBooks); 
+input.addEventListener('input', () => {
+    const term = input.value.toLowerCase().trim();
+    const filterType = filterSelect.value; 
+    
+    if (term === "") {
+        display([]); 
+        return;
     }
+
+    const filtered = myBooks.filter(b => {
+        if (filterType === 'all') {
+            return (b.title || "").toLowerCase().includes(term) || 
+                   (b.author || "").toLowerCase().includes(term) || 
+                   (b.category || "").toLowerCase().includes(term);
+        } else {
+            
+            return String(b[filterType] || "").toLowerCase().includes(term);
+        }
+    });
+    display(filtered);
+});
+
+
+searchButton.addEventListener('click', () => {
+    const term = input.value.toLowerCase().trim();
+    const filterType = filterSelect.value;
+    
+    if (term === "") return;
+
+    const match = myBooks.find(b => {
+        if (filterType === 'all') {
+            return (b.title || "").toLowerCase().includes(term) || 
+                   (b.author || "").toLowerCase().includes(term);
+        } else {
+            return String(b[filterType] || "").toLowerCase().includes(term);
+        }
+    });
+    
+    display(match ? [match] : []);
+});
+
+
+async function borrowBook(bookId) {
+    try {
+        const response = await fetch(`http://127.0.0.1:8000/api/books/${bookId}/`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ is_available: false })
+        });
+        if (response.ok) {
+            alert('Book Borrowed Successfully!');
+            await loadBooksFromServer(); 
+            display([]); 
+        }
+    } catch (err) { console.error('Borrow Error:', err); }
 }
 
 
 function goToDetails(bookId) {
-    if (window.location.href.includes('Admin')) {
-        window.location.href = `Admin Book Details.html?id=${bookId}`;
-    } else {
-        window.location.href = `User Book Details.html?id=${bookId}`;
-    }
+    const page = window.location.href.includes('Admin') ? 'Admin Book Details.html' : 'User Book Details.html';
+    window.location.href = `${page}?id=${bookId}`;
 }
 
 
-if (input) {
-    input.addEventListener('input', (e) => {
-        const term = e.target.value.toLowerCase();
-        const filterType = filterSelect.value;
-
-        if (term === "") {
-            display([]); 
-            return;
-        }
-
-       
-        const filtered = myBooks.filter(b => {
-            const val = filterType === 'all' 
-                ? (b.title + b.author + b.category) 
-                : b[filterType];
-            return val.toLowerCase().includes(term);
-        });
-
-        display(filtered);
-    });
-}
-
-
-display();
-
-
+loadBooksFromServer();
+// update

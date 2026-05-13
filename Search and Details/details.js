@@ -1,34 +1,42 @@
-const myBooks = [
-    { id: "1", title: "Clean Code", author: "Robert C. Martin", category: "Programming", desc: "Amazing book for clean code." },
-    { id: "2", title: "Eloquent JavaScript", author: "Marijn Haverbeke", category: "Programming", desc: "Deep dive into JS." },
-    { id: "3", title: "Design Patterns", author: "Erich Gamma", category: "Design", desc: "Classic software patterns." }
-];
-
 const urlParams = new URLSearchParams(window.location.search);
 const idFromUrl = urlParams.get('id');
 
-const foundBook = myBooks.find(b => b.id === idFromUrl);
-const editLink = document.getElementById('edit');
+async function loadBookDetails() {
+    if (!idFromUrl) return;
 
-if (foundBook) {
-    const title = document.querySelector('.card-top h2');
-    const author = document.querySelector('.card-top span');
-    const badge = document.querySelector('.badge');
-    const labels = document.querySelectorAll('.info-value');
+    try {
+        const response = await fetch(`http://127.0.0.1:8000/api/books/${idFromUrl}/`);
+        const book = await response.json();
+        
+        
+        document.querySelector('.card-top h2').innerText = book.title;
+        document.querySelector('.card-top span').innerText = book.author;
+        document.querySelector('.badge').innerText = book.category;
+        
+        const labels = document.querySelectorAll('.info-value');
+        labels[0].innerText = book.id;
+        labels[1].innerText = book.title;
+        labels[2].innerText = book.author;
+        labels[3].innerText = book.category;
+        labels[4].innerText = book.description || "No description provided.";
+        
+        
+        const statusPill = document.querySelector('.status-pill');
+        if (book.is_available) {
+            statusPill.innerHTML = '<span class="status-dot"></span> Available';
+            statusPill.parentElement.style.color = '#2e7d32'; 
+        } else {
+            statusPill.innerHTML = '<span class="status-dot" style="background-color: #d32f2f;"></span> Not Available';
+            statusPill.parentElement.style.color = '#d32f2f'; 
+            statusPill.style.backgroundColor = '#ffebee';
+            statusPill.style.color = '#c62828'
+            statusPill.style.border = '1px solid #ffcdd2'
 
-    if(title) title.innerText = foundBook.title;
-    if(author) author.innerText = foundBook.author;
-    if(badge) badge.innerText = foundBook.category;
 
-    if(labels[0]) labels[0].innerText = foundBook.id;
-    if(labels[1]) labels[1].innerText = foundBook.title;
-    if(labels[2]) labels[2].innerText = foundBook.author;
-    if(labels[3]) labels[3].innerText = foundBook.category;
-    if(labels[4]) labels[4].innerText = foundBook.desc;
-}
-
-if (foundBook && editLink) {
-    editLink.onclick = function(){
-    window.location.href = `../Book details/Edit Books.html?id=${foundBook.id}`;
+        }
+    } catch (error) {
+        console.error('Error loading details:', error);
     }
 }
+
+document.addEventListener('DOMContentLoaded', loadBookDetails);
