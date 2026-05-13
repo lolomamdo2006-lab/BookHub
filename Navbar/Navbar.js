@@ -3,7 +3,7 @@ const navLinks = document.querySelector(".nav-links");
 let logout = document.getElementById("logoutb");
 let login = document.getElementById("loginb");
 let removeme = document.getElementById("notInLogout");
-let isLogin = localStorage.getItem("login");
+let isLogin = localStorage.getItem("isLoggedIn");
 
 
 if (menuToggle) {
