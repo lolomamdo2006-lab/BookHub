@@ -26,7 +26,7 @@ if (menuToggle) {
 
 if (logout && login) {
     logout.addEventListener("click", function () {
-        localStorage.setItem("login", "false");
+        localStorage.setItem("isLoggedIn", "false");
         window.location.reload(); 
     });
 
