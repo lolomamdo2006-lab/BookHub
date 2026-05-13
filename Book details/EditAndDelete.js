@@ -1,61 +1,72 @@
-function confirmEdit(event){
-    event.preventDefault();
+const API_URL = 'http://127.0.0.1:8000/api/books/';
 
-    if(book){
-        book.title = document.getElementById("bookName").value;
-        book.author = document.getElementById("author").value;
-        book.category = document.getElementById("category").value;
-        book.desc = document.getElementById("description").value;
-    }
+async function fetchBooks() {
+    try {
+        const response = await fetch(API_URL);
+        const books = await response.json();
+        const containers = document.querySelectorAll('.books-container');
 
-    document.getElementById("overlay").style.display = "flex";
-    document.getElementById("successBox").style.display = "block";
+        containers.forEach(c => c.innerHTML = ''); // تنظيف القائمة
 
-    setTimeout(() => {
-        window.location.href = "Admin Books list.html";
-    }, 1500);
+        books.forEach(book => {
+            const bookHTML = `
+                <div class="book-card">
+                    <img src="cleanCode.jpg" alt="Book" class="book-img">
+                    <div class="book-info">
+                        <h3 class="book-title">${book.title}</h3>
+                        <span class="book-category">${book.category}</span>
+                    </div>
+                    <div class="buttons-container">
+                        <a href="Edit Books.html?id=${book.id}"><button class="edit-btn">Edit</button></a>
+                        <button class="delete-btn" onclick="openDeletePopup('${book.id}')">Delete</button>
+                    </div>
+                </div>`;
+            if(containers[0]) containers[0].innerHTML += bookHTML;
+        });
+    } catch (error) { console.error(error); }
 }
 
-let deleteId = null;
-
-function openDeletePopup(id){
-    deleteId = id;
+let deleteTargetId = null;
+function openDeletePopup(id) {
+    deleteTargetId = id;
     document.getElementById("overlay").style.display = "flex";
 }
 
-function confirmDelete(){
-    const index = myBooks.findIndex(b => b.id === deleteId);
-
-    if(index !== -1){
-        myBooks.splice(index, 1);
-    }
-
+async function confirmDelete() {
+    await fetch(`${API_URL}${deleteTargetId}/`, { method: 'DELETE' });
     document.getElementById("confirmBox").style.display = "none";
     document.getElementById("successBox").style.display = "block";
+    fetchBooks();
 }
-
-function closePopup() {
-    document.getElementById("overlay").style.display = "none";
-    document.getElementById("confirmBox").style.display = "block";
-    document.getElementById("successBox").style.display = "none";
-}
-
-const myBooks = [
-    { id: "1", title: "Clean Code", author: "Robert C. Martin", category: "Programming", desc: "Amazing book for clean code." },
-    { id: "2", title: "Eloquent JavaScript", author: "Marijn Haverbeke", category: "Programming", desc: "Deep dive into JS." },
-    { id: "3", title: "Design Patterns", author: "Erich Gamma", category: "Design", desc: "Classic software patterns." }
-];
 
 const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
+const editId = params.get("id");
 
-const book = myBooks.find(b => b.id === id);
-
-window.onload = function(){
-    if(book){
+if (editId && document.getElementById("bookName")) {
+    window.onload = async () => {
+        const res = await fetch(`${API_URL}${editId}/`);
+        const book = await res.json();
         document.getElementById("bookName").value = book.title;
         document.getElementById("author").value = book.author;
         document.getElementById("category").value = book.category;
-        document.getElementById("description").value = book.desc;
-    }
+        document.getElementById("description").value = book.description;
+    };
 }
+
+async function confirmEdit(event) {
+    event.preventDefault();
+    const updatedData = {
+        title: document.getElementById("bookName").value,
+        author: document.getElementById("author").value,
+        category: document.getElementById("category").value,
+        description: document.getElementById("description").value
+    };
+    await fetch(`${API_URL}${editId}/`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedData)
+    });
+    window.location.href = "Admin Books list.html";
+}
+
+if (document.querySelector('.books-container')) fetchBooks();
