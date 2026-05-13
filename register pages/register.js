@@ -47,7 +47,6 @@ if (signupForm) {
     });
 }
 
-
 const loginForm = document.getElementById("login");
 
 if (loginForm) {
@@ -77,9 +76,13 @@ if (loginForm) {
         })
         .then(data => {
             console.log("Login Success:", data);
+
+            // التعديل هنا: وحدنا المسميات عشان صفحة الـ Borrow تفهمها
+            localStorage.setItem("login", "true");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("username", data.user.username);
             localStorage.setItem("userRole", data.user.user_type);
+
             if (data.user.user_type === 'admin') {
                 window.location.href = "../register pages/welcomeAdmin.html";
             } else {
@@ -92,8 +95,6 @@ if (loginForm) {
         });
     });
 }
-
-
 function toggleDarkMode() {
     document.body.classList.toggle('dark');
 

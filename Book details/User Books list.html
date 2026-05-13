@@ -31,128 +31,49 @@
     <script src="../Navbar/Navbar.js"></script>
     <script src="userBookList.js" defer></script>
 
-    <div class="container">
-        <section class="category-group">
-            <h2 class="section-title">✨ Newly Added </h2>
-            <div class="books-container">
-                <div class="book-card trending">
-                    <div class="badge">New</div>
-                    <img src="cleanCode.jpg" alt="Clean Code" class="book-img">
-                    <div class="book-info">
-                        <h3 class="book-title">Clean Code</h3>
-                        <span class="book-category">Programming</span>
-                    </div>
-                    <div class="buttons-container">
-                        <a href="../Search and Details/User Book Details.html"><button class="details-btn">Details</button></a>
-                        <button class="borrow-btn" onclick="borrow()">Borrow</button>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-value"><span class="status-pill"><span class="status-dot"></span>Available</span></span>
-                    </div>
-                </div>
-            </div>
-        </section>
+   <!-- الجزء الخاص بالـ Body فقط مع الحفاظ على التقسيمة -->
+<div class="container">
+    <section class="category-group">
+        <h2 class="section-title">✨ Newly Added </h2>
+        <div class="books-container">
+            <!-- سيتم ملؤه بواسطة JS -->
+        </div>
+    </section>
 
-        <section class="category-group">
-            <h2 class="section-title">📈 Trending </h2>
-            <div class="books-container">
-                <div class="book-card trending">
-                    <div class="badge">New</div>
-                    <img src="cleanCode.jpg" alt="Clean Code" class="book-img">
-                    <div class="book-info">
-                        <h3 class="book-title">Clean Code</h3>
-                        <span class="book-category">Programming</span>
-                    </div>
-                    <div class="buttons-container">
-                        <a href="../Search and Details/User Book Details.html"><button class="details-btn">Details</button></a>
-                        <button class="borrow-btn" onclick="borrow()">Borrow</button>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-value"><span class="status-pill"><span class="status-dot"></span>Available</span></span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section class="category-group">
+        <h2 class="section-title">📈 Trending </h2>
+        <div class="books-container">
+            <!-- سيتم ملؤه بواسطة JS -->
+        </div>
+    </section>
 
-        <section class="category-group">
-            <h2 class="section-title">💻 Programming & Tech</h2>
-            <div class="books-container">
-                <div class="book-card">
-                    <img src="cleanCode.jpg" alt="Clean Code" class="book-img">
-                    <div class="book-info">
-                        <h3 class="book-title">Pragmatic Programmer</h3>
-                        <span class="book-category">Development</span>
-                    </div>
-                    <div class="buttons-container">
-                        <a href="../Search and Details/User Book Details.html"><button class="details-btn">Details</button></a>
-                        <button class="borrow-btn" onclick="borrow()">Borrow</button>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-value"><span class="status-pill"><span class="status-dot"></span>Available</span></span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section class="category-group">
+        <h2 class="section-title">💻 Programming </h2>
+        <div class="books-container">
+            <!-- سيتم ملؤه بواسطة JS -->
+        </div>
+    </section>
 
-        <section class="category-group">
-            <h2 class="section-title">🍳 Cooking & Food</h2>
-            <div class="books-container">
-                <div class="book-card">
-                    <img src="cleanCode.jpg" alt="Cook Book" class="book-img">
-                    <div class="book-info">
-                        <h3 class="book-title">Mastering Food</h3>
-                        <span class="book-category">Cooking</span>
-                    </div>
-                    <div class="buttons-container">
-                        <a href="../Search and Details/User Book Details.html"><button class="details-btn">Details</button></a>
-                        <button class="borrow-btn" onclick="borrow()">Borrow</button>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-value"><span class="status-pill"><span class="status-dot"></span>Available</span></span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section class="category-group">
+        <h2 class="section-title">🍳 Cooking </h2>
+        <div class="books-container">
+            <!-- سيتم ملؤه بواسطة JS -->
+        </div>
+    </section>
 
-        <section class="category-group">
-            <h2 class="section-title">🏛️ History & Culture</h2>
-            <div class="books-container">
-                <div class="book-card">
-                    <img src="cleanCode.jpg" alt="History" class="book-img">
-                    <div class="book-info">
-                        <h3 class="book-title">The Silk Roads</h3>
-                        <span class="book-category">History</span>
-                    </div>
-                    <div class="buttons-container">
-                        <a href="../Search and Details/User Book Details.html"><button class="details-btn">Details</button></a>
-                        <button class="borrow-btn" onclick="borrow()">Borrow</button>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-value"><span class="status-pill"><span class="status-dot"></span>Available</span></span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section class="category-group">
+        <h2 class="section-title">🏛️ History </h2>
+        <div class="books-container">
+            <!-- سيتم ملؤه بواسطة JS -->
+        </div>
+    </section>
 
-        <section class="category-group">
-            <h2 class="section-title">📖 Fiction & Novels</h2>
-            <div class="books-container">
-                <div class="book-card">
-                    <img src="cleanCode.jpg" alt="Novel" class="book-img">
-                    <div class="book-info">
-                        <h3 class="book-title">The Great Gatsby</h3>
-                        <span class="book-category">Classic</span>
-                    </div>
-                    <div class="buttons-container">
-                        <a href="../Search and Details/User Book Details.html"><button class="details-btn">Details</button></a>
-                        <button class="borrow-btn" onclick="borrow()">Borrow</button>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-value"><span class="status-pill"><span class="status-dot"></span>Available</span></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+    <section class="category-group">
+        <h2 class="section-title">📖 Fiction </h2>
+        <div class="books-container">
+            <!-- سيتم ملؤه بواسطة JS -->
+        </div>
+    </section>
+</div>
 </body>
 </html>
