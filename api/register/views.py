@@ -33,3 +33,8 @@ def login(request):
             serializer = UserSerializer(user)
   
             return Response({"message": "Login Successful!","user": serializer.data}, status=status.HTTP_200_OK)
+       
+        return Response(
+        {"error": "Invalid username or password"},
+        status=status.HTTP_401_UNAUTHORIZED
+        )
