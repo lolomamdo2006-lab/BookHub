@@ -1,22 +1,3 @@
-let borrowedBooks = [
-    {
-        id: "AS512",
-        title: "Clean Code",
-        author: "Robert C. Martin",
-        category: "Programming",
-        borrowDate: "Mar 10, 2026",
-        dueDate: "Apr 10, 2026"
-    },
-    {
-        id: "BK209",
-        title: "The Pragmatic Programmer",
-        author: "Andrew Hunt",
-        category: "Programming",
-        borrowDate: "Feb 01, 2026",
-        dueDate: "Mar 01, 2027"
-    }
-];
-
 function checkIfOverdue(dueDate) {
     const today = new Date();
     const due = new Date(dueDate);
@@ -113,12 +94,43 @@ function returnBook(bookId) {
     renderCards(borrowedBooks);
 }
 
-window.onload = function () {
-    renderCards(borrowedBooks);
-};
+// window.onload = function () {
+//     renderCards(borrowedBooks);
+// };
 
+const API_URL = 'http://127.0.0.1:8000/api/borrowed/';
+
+async function fetchBorrowedBooks() {
+    try {
+        // 1. طلب البيانات من السيرفر
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error("السيرفر مش بيرد");
+
+        const data = await response.json();
+
+        // 2. تحويل البيانات من شكل جانجو لشكل الكروت بتاعتك
+        const formattedBooks = data.map(item => ({
+            id: item.book_details.book_id, // الـ ID اللي جاي من جدول الكتب
+            title: item.book_details.title,
+            author: item.book_details.author,
+            category: item.book_details.category,
+            borrowDate: item.borrow_date,
+            dueDate: item.due_date
+        }));
+
+        // 3. نداء الدالة اللي إنتي كاتباها أصلاً عشان ترسم الكروت
+        renderCards(formattedBooks);
+
+    } catch (error) {
+        console.error("مشكلة في جلب البيانات:", error);
+        document.querySelector('.books-grid').innerHTML =
+            '<p style="color:red; text-align:center;">عفواً، فشل الاتصال بالسيرفر تأكد من تشغيله.</p>';
+    }
+}
+
+// تشغيل الربط أول ما الصفحة تفتح
 window.onload = function () {
-    renderCards(borrowedBooks); 
+    fetchBorrowedBooks();
 
     if (typeof applyTheme === "function") {
         applyTheme();
