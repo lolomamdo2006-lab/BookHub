@@ -1,6 +1,9 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+
+from books.models import Book
+from .models import CustomUser, BorrowedBook
 from .serializers import UserSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -38,3 +41,32 @@ def login(request):
         {"error": "Invalid username or password"},
         status=status.HTTP_401_UNAUTHORIZED
         )
+
+
+@api_view(['POST'])
+def borrow_book(request):
+    book_id = request.data.get('book_id')
+    username = request.data.get('username')
+
+    print(f"--- Attempting to borrow book_id: {book_id} for user: {username} ---")
+
+    try:
+        book = Book.objects.get(id=int(book_id))
+        user = CustomUser.objects.get(username=username)
+
+        if not book.is_available:
+            return Response({"message": "This book is already borrowed!"}, status=status.HTTP_400_BAD_REQUEST)
+
+        BorrowedBook.objects.create(user=user, book=book)
+
+        book.is_available = False
+        book.save()
+
+        return Response({"message": "Success"}, status=status.HTTP_200_OK)
+
+    except (Book.DoesNotExist, ValueError, TypeError):
+        return Response({"message": "Invalid ID: Book not found in database"}, status=status.HTTP_404_NOT_FOUND)
+    except CustomUser.DoesNotExist:
+        return Response({"message": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+    except Exception as e:
+        return Response({"message": f"Server Error: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
