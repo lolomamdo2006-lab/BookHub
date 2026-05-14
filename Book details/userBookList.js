@@ -25,10 +25,15 @@ async function loadUserBooks() {
 
             if (!targetContainer) targetContainer = document.querySelector('.books-container');
 
+            const imageSrc = book.image ? book.image : 'cleanCode.jpg';
+
             const bookHTML = `
             <div class="book-card">
                 <div class="badge">${book.is_available ? 'Available' : 'Borrowed'}</div>
-                <img src="cleanCode.jpg" alt="Book" class="book-img">
+                
+                <!-- تم تغيير src ليقرأ من المتغير imageSrc -->
+                <img src="${imageSrc}" alt="${book.title}" class="book-img">
+                
                 <div class="book-info">
                     <h3 class="book-title">${book.title}</h3>
                     <span class="book-category">${book.category}</span>
@@ -54,20 +59,39 @@ async function loadUserBooks() {
     } catch (error) {
         console.error("Error loading user books:", error);
     }
+}
 
-}async function borrow(bookId) {
+async function borrow(bookId) {
+    let username = localStorage.getItem("username");
+    let loginStatus = localStorage.getItem("login");
+
+    if (loginStatus !== "true" || !username) {
+        alert("Please login first to borrow books");
+        window.location.href = "../register pages/login.html";
+        return;
+    }
+
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/books/${bookId}/`, {
-            method: 'PATCH',
+        const response = await fetch(BORROW_URL, {
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ is_available: false })
+            body: JSON.stringify({
+                book_id: bookId,
+                username: username
+            })
         });
+
         if (response.ok) {
             alert('Book Borrowed Successfully!');
-            await loadBooksFromServer();
-            display([]);
+            await loadUserBooks();
+        } else {
+            const err = await response.json();
+            alert("Failed: " + (err.message || "Unknown error"));
         }
-    } catch (err) { console.error('Borrow Error:', err); }
+    } catch (err) {
+        console.error('Borrow Error:', err);
+        alert("Check your connection");
+    }
 }
 
 document.addEventListener('DOMContentLoaded', loadUserBooks);

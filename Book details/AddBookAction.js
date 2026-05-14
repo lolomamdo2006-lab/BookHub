@@ -7,19 +7,22 @@ if (addBtn) {
     addBtn.addEventListener('click', async function(e) {
         e.preventDefault();
 
-        const bookData = {
-            book_id: form.bookId.value.trim(),
-            title: form.bookName.value.trim(), // تم التوحيد مع الموديل
-            author: form.author.value.trim(),
-            category: form.category.value.trim(),
-            description: form.description.value.trim()
-        };
+        const formData = new FormData();
+
+        formData.append('title', form.bookName.value.trim());
+        formData.append('author', form.author.value.trim());
+        formData.append('category', form.category.value.trim());
+        formData.append('description', form.description.value.trim());
+        formData.append('is_available', 'true');
+        const imageFile = document.getElementById('bookImage').files[0];
+        if (imageFile) {
+            formData.append('image', imageFile);
+        }
 
         try {
             const response = await fetch('http://127.0.0.1:8000/api/books/', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(bookData)
+                body: formData
             });
 
             if (response.ok) {
@@ -31,6 +34,7 @@ if (addBtn) {
             }
         } catch (error) {
             console.error("Fetch error:", error);
+            alert("Connection error. Is Django server running?");
         }
     });
 }

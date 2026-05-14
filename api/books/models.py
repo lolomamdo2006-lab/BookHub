@@ -24,6 +24,7 @@ class Book(models.Model):
     author = models.CharField(max_length=255, null=True, blank=True)
     category = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+    image = models.ImageField(upload_to='book_images/', null=True, blank=True)
     is_available = models.BooleanField(default=True)
 
     def __str__(self):
