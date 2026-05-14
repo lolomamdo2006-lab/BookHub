@@ -6,26 +6,26 @@ async function fetchBooks() {
         const books = await response.json();
         const containers = document.querySelectorAll('.books-container');
 
-        containers.forEach(c => c.innerHTML = '');
+        containers.forEach(c => c.innerHTML = ''); 
 
         books.forEach(book => {
             const imageSrc = book.image ? book.image : 'cleanCode.jpg';
 
             const bookHTML = `
-            <div class="book-card">
-                <img src="${imageSrc}" alt="Book" class="book-img">
-                <div class="book-info">
-                    <h3 class="book-title">${book.title}</h3>
-                    <span class="book-category">${book.category}</span>
-                </div>
-                <div class="buttons-container">
-                    <a href="Edit Books.html?id=${book.id}"><button class="edit-btn">Edit</button></a>
-                    <button class="delete-btn" onclick="openDeletePopup('${book.id}')">Delete</button>
-                </div>
-            </div>`;
+                <div class="book-card">
+                    <img src="${imageSrc}" alt="Book" class="book-img">
+                    <div class="book-info">
+                        <h3 class="book-title">${book.title}</h3>
+                        <span class="book-category">${book.category}</span>
+                    </div>
+                    <div class="buttons-container">
+                        <a href="Edit Books.html?id=${book.id}"><button class="edit-btn">Edit</button></a>
+                        <button class="delete-btn" onclick="openDeletePopup('${book.id}')">Delete</button>
+                    </div>
+                </div>`;
             if(containers[0]) containers[0].innerHTML += bookHTML;
         });
-    } catch (error) { console.error(error); }
+    } catch (error) { console.error("Error fetching books:", error); }
 }
 
 let deleteTargetId = null;
@@ -35,10 +35,15 @@ function openDeletePopup(id) {
 }
 
 async function confirmDelete() {
-    await fetch(`${API_URL}${deleteTargetId}/`, { method: 'DELETE' });
-    document.getElementById("confirmBox").style.display = "none";
-    document.getElementById("successBox").style.display = "block";
-    fetchBooks();
+    if (!deleteTargetId) return;
+    try {
+        const response = await fetch(`${API_URL}${deleteTargetId}/`, { method: 'DELETE' });
+        if (response.ok) {
+            document.getElementById("confirmBox").style.display = "none";
+            document.getElementById("successBox").style.display = "block";
+            await fetchBooks();
+        }
+    } catch (error) { console.error("Delete error:", error); }
 }
 
 const params = new URLSearchParams(window.location.search);
@@ -46,19 +51,20 @@ const editId = params.get("id");
 
 if (editId && document.getElementById("bookName")) {
     window.onload = async () => {
-        const res = await fetch(`${API_URL}${editId}/`);
-        const book = await res.json();
+        try {
+            const res = await fetch(`${API_URL}${editId}/`);
+            const book = await res.json();
+            document.getElementById("bookName").value = book.title;
+            document.getElementById("author").value = book.author;
+            document.getElementById("category").value = book.category;
+            document.getElementById("description").value = book.description;
 
-        document.getElementById("bookName").value = book.title;
-        document.getElementById("author").value = book.author;
-        document.getElementById("category").value = book.category;
-        document.getElementById("description").value = book.description;
-
-        const currentImg = document.getElementById("currentImagePreview");
-        if (currentImg && book.image) {
-            currentImg.src = book.image;
-            currentImg.style.display = "block";
-        }
+            const imgPreview = document.getElementById("currentImagePreview");
+            if (imgPreview && book.image) {
+                imgPreview.src = book.image;
+                imgPreview.style.display = "block";
+            }
+        } catch (error) { console.error("Error loading book:", error); }
     };
 }
 
@@ -77,20 +83,13 @@ async function confirmEdit(event) {
     }
 
     try {
-        const response = await fetch(`${API_URL}${editId}/`, {
+        await fetch(`${API_URL}${editId}/`, {
             method: 'PATCH',
             body: formData
         });
-
-        if (response.ok) {
-            window.location.href = "Admin Books list.html";
-        } else {
-            const errorData = await response.json();
-            alert("Update failed: " + JSON.stringify(errorData));
-        }
-    } catch (error) {
-        console.error("Edit error:", error);
-    }
+        window.location.href = "Admin Books list.html";
+    } catch (error) { console.error("Edit error:", error); }
 }
 
+// تشغيل القائمة
 if (document.querySelector('.books-container')) fetchBooks();
