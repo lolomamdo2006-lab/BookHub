@@ -62,36 +62,18 @@ async function loadUserBooks() {
 }
 
 async function borrow(bookId) {
-    let username = localStorage.getItem("username");
-    let loginStatus = localStorage.getItem("login");
-
-    if (loginStatus !== "true" || !username) {
-        alert("Please login first to borrow books");
-        window.location.href = "../register pages/login.html";
-        return;
-    }
-
     try {
-        const response = await fetch(BORROW_URL, {
-            method: 'POST',
+        const response = await fetch(`http://127.0.0.1:8000/api/books/${bookId}/`, {
+            method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                book_id: bookId,
-                username: username
-            })
+            body: JSON.stringify({ is_available: false })
         });
-
         if (response.ok) {
             alert('Book Borrowed Successfully!');
-            await loadUserBooks();
-        } else {
-            const err = await response.json();
-            alert("Failed: " + (err.message || "Unknown error"));
+            await loadBooksFromServer();
+            display([]);
         }
-    } catch (err) {
-        console.error('Borrow Error:', err);
-        alert("Check your connection");
-    }
+    } catch (err) { console.error('Borrow Error:', err); }
 }
 
 document.addEventListener('DOMContentLoaded', loadUserBooks);
