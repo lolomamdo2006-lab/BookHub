@@ -5,11 +5,29 @@ async function fetchBooks() {
         const response = await fetch(API_URL);
         const books = await response.json();
 
-        const containers = document.querySelectorAll('.books-container');
-        containers.forEach(c => c.innerHTML = '');
+        const sections = document.querySelectorAll('.category-group');
+
+        // 1. تنظيف كل الحاويات أولاً
+        sections.forEach(section => {
+            const container = section.querySelector('.books-container');
+            if (container) container.innerHTML = '';
+        });
 
         books.forEach(book => {
             const imageSrc = book.image ? book.image : 'cleanCode.jpg';
+            let targetContainer = null;
+
+            // 2. البحث عن الحاوية المناسبة للكاتيجوري
+            sections.forEach(section => {
+                const title = section.querySelector('.section-title').innerText.toLowerCase();
+                // لو عنوان القسم فيه اسم الكاتيجوري بتاعة الكتاب، هنحطه هنا
+                if (title.includes(book.category.toLowerCase())) {
+                    targetContainer = section.querySelector('.books-container');
+                }
+            });
+
+            // لو ملقتيش كاتيجوري مناسبة، حطيه في أول حاوية كديفولت (اختياري)
+            if (!targetContainer) targetContainer = document.querySelector('.books-container');
 
             const bookHTML = `
                 <div class="book-card">
@@ -25,7 +43,10 @@ async function fetchBooks() {
                     </div>
                 </div>`;
 
-            if(containers[0]) containers[0].innerHTML += bookHTML;
+            // 3. الإضافة في الحاوية الصح
+            if (targetContainer) {
+                targetContainer.innerHTML += bookHTML;
+            }
         });
     } catch (error) {
         console.error("Error loading books:", error);
@@ -34,7 +55,7 @@ async function fetchBooks() {
 
 let deleteTargetId = null;
 
-window.openDeletePopup = function(id) {
+window.openDeletePopup = function (id) {
     deleteTargetId = id;
     const overlay = document.getElementById("overlay");
     if (overlay) {
@@ -44,7 +65,7 @@ window.openDeletePopup = function(id) {
     }
 };
 
-window.confirmDelete = async function() {
+window.confirmDelete = async function () {
     if (!deleteTargetId) return;
 
     try {
@@ -65,7 +86,7 @@ window.confirmDelete = async function() {
     }
 };
 
-window.closePopup = function() {
+window.closePopup = function () {
     const overlay = document.getElementById("overlay");
     if (overlay) overlay.style.display = "none";
 };

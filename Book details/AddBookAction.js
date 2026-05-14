@@ -1,10 +1,10 @@
 const form = document.getElementById('form');
-const addBtn = document.getElementById('addBookBtn'); 
+const addBtn = document.getElementById('addBookBtn');
 const addOverlay = document.getElementById('addOverlay');
 const addSuccessBox = document.getElementById('addSuccessBox');
 
 if (addBtn) {
-    addBtn.addEventListener('click', async function(e) {
+    addBtn.addEventListener('click', async function (e) {
         e.preventDefault();
 
         const formData = new FormData();
@@ -40,10 +40,10 @@ if (addBtn) {
 }
 
 function showSuccess() {
-    if(addOverlay) addOverlay.style.display = 'flex';
-    if(addSuccessBox) addSuccessBox.style.display = 'block';
+    if (addOverlay) addOverlay.style.display = 'flex';
+    if (addSuccessBox) addSuccessBox.style.display = 'block';
     setTimeout(() => {
-        if(addOverlay) addOverlay.style.display = 'none';
-        if(addSuccessBox) addSuccessBox.style.display = 'none';
+        if (addOverlay) addOverlay.style.display = 'none';
+        if (addSuccessBox) addSuccessBox.style.display = 'none';
     }, 2000);
 }
